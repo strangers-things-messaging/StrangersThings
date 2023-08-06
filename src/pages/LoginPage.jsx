@@ -1,68 +1,82 @@
-import { useState } from "react";
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 const COHORT_NAME='2302-acc-et-web-pt-a'
 const API_URL=`https://strangers-things.herokuapp.com/api/${COHORT_NAME}`
-export default function LoginPage({ setToken }) {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState(null);
+export default function LoginPage() {
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [errorMessage, setErrorMessage] = useState('')
+  const [token, setToken] = useState(localStorage.getItem('token'))
 
-  async function handleSubmit(event) {
-    event.preventDefault();
-    if (username.length < 6 && password.length < 8) {
-        setError("Username and password are too short");
-    } else if (password.length < 8) {
-        setError("Password must be at least 8 characters");
-    } else if (username.length < 6) {
-        setError("Username must be at least 6 characters");
+  const navigate = useNavigate()
+  async function submitForm(e) {
+    e.preventDefault()
+    if (password.length < 8) {
+      setErrorMessage("Password is too short");
     } else {
-        setUsername(''); 
-        setPassword('');
+      const response = await fetch(API_URL, 
+      { 
+        method: "POST", 
+        headers: { 
+          "Content-Type": "application/json" 
+        }, 
+        body: JSON.stringify({ 
+          name,
+          username: email, 
+          password 
+        }) 
+      })
+      setName('')
+      setEmail(''); // resets the state value
+      setPassword('');
+      const { token } = await response.json()
+      localStorage.setItem('token', token);
+      navigate('/ProfilePage')
     }
-
-    console.log("hello");
-    try {
-      const response = await fetch(
-        API_URL,
-        {
-          method: "POST",
-          body: JSON.stringify({ username, password }),
-        }
-      );
-
-      const result = await response.json();
-      console.log(result);
-      setToken(result.token);
-    } catch (error) {
-      // console.error(error)
-      setError(error.message);
-    }
-    setUsername(" ");
-    setPassword(" ");
   }
+
+
   return (
     <div>
-      <h2>Sign Up</h2>
-      {error && <p>{error}</p>}
-      <form method="POST" onSubmit={handleSubmit}>
-        <label>
-          Username:{""}
-          <input
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-        </label>
+      <h1>Login/Sign Up</h1>
+      <form onSubmit={submitForm}>
+      <label htmlFor="name">Name: </label>
+        <input
+          value={name} // controls the input value
+          type="name"
+          id="name"
+          onChange={(e) => {
+            setErrorMessage('');
+            setName(e.target.value)
+          }} // changes the state value and rerenders the form with the new values
+        />
         <br></br>
-        <label>
-          Password:{""}
-          <input
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </label>
+        <label htmlFor="email">Email: </label>
+        <input
+          value={email} // controls the input value
+          type="email"
+          id="email"
+          onChange={(e) => {
+            setErrorMessage('');
+            setEmail(e.target.value)
+          }} // changes the state value and rerenders the form with the new values
+        />
         <br></br>
-        <br></br>
-        <button className="submitButton">Submit</button>
+        <label htmlFor="password">Password: </label>
+        <input
+          value={password}
+          type="password"
+          id="password"
+          onChange={(e) => {
+            setErrorMessage('');
+            setPassword(e.target.value)
+          }}
+        />
+        <p>{errorMessage}</p>
+        <button type="submit">Login</button>
       </form>
     </div>
-  );
+  )
 }
+
