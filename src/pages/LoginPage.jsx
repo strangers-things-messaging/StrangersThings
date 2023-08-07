@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom'
 const COHORT_NAME='2302-acc-et-web-pt-a'
 const API_URL=`https://strangers-things.herokuapp.com/api/${COHORT_NAME}`
 export default function LoginPage() {
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
+//   const [name, setName] = useState('')
+  const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [errorMessage, setErrorMessage] = useState('')
   const [token, setToken] = useState(localStorage.getItem('token'))
@@ -22,13 +22,13 @@ export default function LoginPage() {
           "Content-Type": "application/json" 
         }, 
         body: JSON.stringify({ 
-          name,
-          username: email, 
+        //   name,
+          username, 
           password 
         }) 
       })
-      setName('')
-      setEmail(''); // resets the state value
+    //   setName('')
+      setUsername(''); 
       setPassword('');
       const { token } = await response.json()
       localStorage.setItem('token', token);
@@ -41,25 +41,25 @@ export default function LoginPage() {
     <div>
       <h1>Login/Sign Up</h1>
       <form onSubmit={submitForm}>
-      <label htmlFor="name">Name: </label>
+      {/* <label htmlFor="name">Name: </label>
         <input
-          value={name} // controls the input value
+          value={name} 
           type="name"
           id="name"
           onChange={(e) => {
             setErrorMessage('');
             setName(e.target.value)
           }} // changes the state value and rerenders the form with the new values
-        />
+        /> */}
         <br></br>
-        <label htmlFor="email">Email: </label>
+        <label htmlFor="username">Username: </label>
         <input
-          value={email} // controls the input value
-          type="email"
-          id="email"
+          value={username} // controls the input value
+          type="username"
+          id="username"
           onChange={(e) => {
             setErrorMessage('');
-            setEmail(e.target.value)
+            setUsername(e.target.value)
           }} // changes the state value and rerenders the form with the new values
         />
         <br></br>

@@ -17,8 +17,8 @@ function App() {
         
         <Routes>
           <Route path="/" element={<LoginPage />}/>
-          <Route path="/LoginPage" element={<LoginPage token={token} setToken={setToken} />}/>
-          <Route path="/ProfilePage" element={<ProfilePage />}/>
+          {/* <Route path="/LoginPage" element={<LoginPage />}/> */}
+          <Route path="/ProfilePage" element={<ProfilePage token={token} setToken={setToken}/>}/>
         </Routes>
       </div>
       
