@@ -10,7 +10,7 @@ const API_URL=`https://strangers-things.herokuapp.com/api/${COHORT_NAME}`
 const POSTS_ENDPOINT=`${API_URL}/posts`
 
 function App() {
-  const [token, setToken] = useState(null);
+  const [token, setToken] = useState(localStorage.getItem('token'));
   return (
     <>
       <div>
@@ -18,7 +18,7 @@ function App() {
         <Routes>
           <Route path="/" element={<LoginPage />}/>
           {/* <Route path="/LoginPage" element={<LoginPage />}/> */}
-          <Route path="/ProfilePage" element={<ProfilePage token={token} setToken={setToken}/>}/>
+          <Route path="/users/me" element={<ProfilePage token={token} setToken={setToken}/>}/>
         </Routes>
       </div>
       
