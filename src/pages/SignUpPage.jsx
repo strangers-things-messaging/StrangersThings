@@ -39,7 +39,7 @@ export default function SignUpPage({setToken}) {
                     console.log(result)
                     localStorage.setItem('token', token);
                     setToken(token)
-                    navigate('/users/me')
+                    navigate('/ProfilePage')
             } catch (err) {
                 console.error(err)
             }

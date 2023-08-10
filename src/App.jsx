@@ -19,8 +19,8 @@ function App() {
         <Routes>
           <Route path="/" element={<SignUpPage setToken={setToken}/>}/>
           {/* <Route path="/LoginPage" element={<LoginPage />}/> */}
-          <Route path="/users/me" element={<ProfilePage token={token} />}/>
-          <Route path="/posts" element={<CreatePost token={token} />}/>
+          <Route path="/ProfilePage" element={<ProfilePage token={token} />}/>
+          <Route path="/CreatePost" element={<CreatePost token={token} />}/>
         </Routes>
       </div>
       
