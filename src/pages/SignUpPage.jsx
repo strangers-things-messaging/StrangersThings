@@ -75,7 +75,7 @@ export default function SignUpPage({setToken}) {
           }}
         />
         <p>{errorMessage}</p>
-        <button type="submit">Login</button>
+        <button type="submit">Sign Up</button>
       </form>
     </div>
   )

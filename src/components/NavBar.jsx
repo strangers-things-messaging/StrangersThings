@@ -6,6 +6,7 @@ export default function NavBar() {
             <Link to="/">Sign Up</Link>
             <Link to="/LoginPage">Login</Link>
             <Link to="/users/me">Profile Page</Link>
+            <Link to="/posts">Create Post</Link>
             
         </div>
     )

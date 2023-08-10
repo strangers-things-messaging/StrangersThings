@@ -42,6 +42,7 @@ export default function ProfilePage({token}) {
             </div>
             <div>
                 {messages}
+                {posts}
             </div>
         </>
     )

@@ -3,6 +3,7 @@ import { useState } from 'react'
 import './App.css'
 import SignUpPage from './pages/SignUpPage.jsx'
 import ProfilePage from './pages/ProfilePage.jsx'
+import CreatePost from './pages/CreatePostPage.jsx'
 
 
 const COHORT_NAME='2302-acc-et-web-pt-a'
@@ -19,6 +20,7 @@ function App() {
           <Route path="/" element={<SignUpPage setToken={setToken}/>}/>
           {/* <Route path="/LoginPage" element={<LoginPage />}/> */}
           <Route path="/users/me" element={<ProfilePage token={token} />}/>
+          <Route path="/posts" element={<CreatePost token={token} />}/>
         </Routes>
       </div>
       
