@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
 import { useState } from 'react'
 import './App.css'
-import LoginPage from './pages/LoginPage.jsx'
+import SignUpPage from './pages/SignUpPage.jsx'
 import ProfilePage from './pages/ProfilePage.jsx'
 
 
@@ -16,9 +16,9 @@ function App() {
       <div>
         
         <Routes>
-          <Route path="/" element={<LoginPage />}/>
+          <Route path="/" element={<SignUpPage setToken={setToken}/>}/>
           {/* <Route path="/LoginPage" element={<LoginPage />}/> */}
-          <Route path="/users/me" element={<ProfilePage token={token} setToken={setToken}/>}/>
+          <Route path="/users/me" element={<ProfilePage token={token} />}/>
         </Routes>
       </div>
       
