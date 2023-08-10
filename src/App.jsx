@@ -4,6 +4,7 @@ import './App.css'
 import SignUpPage from './pages/SignUpPage.jsx'
 import ProfilePage from './pages/ProfilePage.jsx'
 import CreatePost from './pages/CreatePostPage.jsx'
+import LoginPage from './pages/LogInPage.jsx'
 
 
 const COHORT_NAME='2302-acc-et-web-pt-a'
@@ -21,6 +22,7 @@ function App() {
           {/* <Route path="/LoginPage" element={<LoginPage />}/> */}
           <Route path="/ProfilePage" element={<ProfilePage token={token} />}/>
           <Route path="/CreatePost" element={<CreatePost token={token} />}/>
+          <Route path="/LoginPage" element={<LoginPage token={token} />}/>
         </Routes>
       </div>
       
