@@ -8,9 +8,19 @@ export async function fetchPosts() {
       const response = await fetch(`${POSTS_ENDPOINT}`)
       const result = await response.json();
       console.log(result.data.posts);
-    //   setPosts(result.data.posts);
       return result.data.posts
     } catch (err) {
       console.error(err);
     }
+}
+
+export async function fetchMyPosts() {
+    try {
+        const response = await fetch(`${API_URL}/users/me`)
+        const result = await response.json();
+        console.log(result.data.posts);
+        return result.data.posts
+      } catch (err) {
+        console.error(err);
+      }
 }

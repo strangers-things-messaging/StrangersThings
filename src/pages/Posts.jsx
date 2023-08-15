@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import NavBar from '../components/NavBar.jsx'
 import { fetchPosts } from '../API/index.js'
 import PostCard from '../components/PostCard.jsx'
@@ -9,11 +9,14 @@ const POSTS_ENDPOINT=`${API_URL}/posts`
 
 export default function Posts() {
     const [posts, setPosts] = useState([])
+   
     async function fetchData() {
         const data = await fetchPosts()
         setPosts(data)
     }
-    fetchData()
+    useEffect(() => {
+        fetchData()
+    }, []) 
     
     return (
         <>

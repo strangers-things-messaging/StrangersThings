@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 
-export default function NavBar() {
+export default function NavBar({ token, setToken }) {
+    //conditionally render links based on token
     return (
         <div id='navbar'>
             <Link to="/">Sign Up</Link>
