@@ -13,14 +13,13 @@ export default function Posts() {
         const data = await fetchPosts()
         setPosts(data)
     }
-    
-    
     fetchData()
     
     return (
         <>
             <NavBar />
             <h1>Posts</h1>
+            <main>
             {
                 posts.map((post) => (
                     <PostCard 
@@ -30,6 +29,7 @@ export default function Posts() {
                         />
                 ))
             }
+            </main>
         </>
         
     )

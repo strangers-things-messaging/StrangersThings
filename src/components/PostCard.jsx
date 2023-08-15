@@ -1,7 +1,7 @@
 import {fetchPosts} from '../API'
 
 export default function PostCard({ post, fetchPosts }) {
-    const { _id, title, username, description, location, price, willDeliver } = post;
+    const { _id, title, author, description, location, price, willDeliver } = post;
     async function showPosts() {
         await fetchPosts()
     }
@@ -9,9 +9,14 @@ export default function PostCard({ post, fetchPosts }) {
     return (
       <div className="postCard" key={_id}>
         <h3>{title}</h3>
-        <p>{description}</p>
-        <p>{price} {location} {willDeliver}</p>
-        <p>{username}</p>
+        <p>Author: {author.username}</p>
+        <p>Description: {description}</p>
+        <p>Price: {price} Location: {location} Will Deliver: {willDeliver}</p>
+        <button>Send Message to Seller</button>
+        {
+           // make button function to show message form below post. 
+           // must be logged in to send message
+        }
       </div>
     )
   }
