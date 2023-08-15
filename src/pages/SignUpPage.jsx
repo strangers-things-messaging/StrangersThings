@@ -32,9 +32,6 @@ export default function SignUpPage({setToken}) {
                         }
                       }) 
                     })
-                    // setUsername(''); 
-                    // setPassword('');
-                    // const { token } = await response.json()
                     const result = await response.json();
                     const { token } = result.data
                     console.log(result)
