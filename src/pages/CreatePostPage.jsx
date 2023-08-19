@@ -56,9 +56,9 @@ export default function CreatePost({token}) {
     //     setLocation(postData.data.posts.location)
     //     setWillDeliver(postData.data.posts.willDeliver)
     // }
-    // useEffect(() => { 
-    //     PostForm()
-    // }, [token])
+    useEffect(() => { 
+        createNewPost()
+    }, [token])
     
     
     return (
