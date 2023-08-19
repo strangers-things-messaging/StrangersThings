@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { createNewPost } from '../API/index.js'
 
-export default function PostForm() {
+export default function PostForm(token) {
     const [title, setTitle] = useState("")
     const [description, setDescription] = useState("")
     const [price, setPrice] = useState("")
@@ -17,7 +17,7 @@ export default function PostForm() {
           location,
           willDeliver
         }
-        await createNewPost(newPost)
+        await createNewPost(newPost, token)
         setTitle('')
         setDescription('')
         setPrice('')

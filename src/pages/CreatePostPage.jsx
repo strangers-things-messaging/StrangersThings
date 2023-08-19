@@ -7,15 +7,13 @@ const COHORT_NAME='2302-acc-et-web-pt-a'
 const API_URL=`https://strangers-things.herokuapp.com/api/${COHORT_NAME}`
 const POSTS_ENDPOINT=`${API_URL}/posts`
 
-export default function CreatePost({token}) {
-    const [title, setTitle] = useState("")
-    const [description, setDescription] = useState("")
-    const [price, setPrice] = useState("")
-    const [location, setLocation] = useState("On Request")
-    const [willDeliver, setWillDeliver] = useState(false)
-    
+export default function CreatePost(token) {
+    // const [title, setTitle] = useState("")
+    // const [description, setDescription] = useState("")
+    // const [price, setPrice] = useState("")
+    // const [location, setLocation] = useState("On Request")
+    // const [willDeliver, setWillDeliver] = useState(false)
     // const makePost = async () => {
-
     //     try {
     //         const response = await fetch(
     //             POSTS_ENDPOINT, 
@@ -48,23 +46,14 @@ export default function CreatePost({token}) {
     //         console.error(err);
     //     }
     // }
-    // async function fetchPostData () {
-    //     const postData = await createNewPost()
-    //     setTitle(postData.posts.title)
-    //     setDescription(postData.data.posts.description)
-    //     setPrice(postData.data.posts.price)
-    //     setLocation(postData.data.posts.location)
-    //     setWillDeliver(postData.data.posts.willDeliver)
-    // }
     useEffect(() => { 
         createNewPost()
     }, [token])
     
-    
     return (
         <div>
             <NavBar />
-            <PostForm />
+            <PostForm token={token}/>
         </div>
     )
 }

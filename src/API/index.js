@@ -26,6 +26,7 @@ export async function fetchMyPosts() {
 }
 
 export async function createNewPost(newPost, token) {
+    console.log(newPost)
     try {
         const response = await fetch(POSTS_ENDPOINT, {
           method: "POST",
