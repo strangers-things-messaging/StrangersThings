@@ -7,7 +7,7 @@ export default function NavBar({ token, setToken }) {
             <Link to="/">Sign Up</Link>
             <Link to="/LoginPage">Login</Link>
             <Link to="/ProfilePage">Profile Page</Link>
-            <Link to="/CreatePost">Create Post</Link>
+            <Link to="/CreatePostPage">Create Post</Link>
             <Link to="/Posts">Posts</Link>
         </div>
     )

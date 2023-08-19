@@ -8,7 +8,7 @@ export default function PostCard({ post, fetchPosts }) {
     return (
       <div className="postCard" key={_id}>
         <h3>{title}</h3>
-        <p>Author: {author.username}</p>
+        <p>Author: {author}</p>
         <p>Description: {description}</p>
         <p>Price: {price} Location: {location} Will Deliver: {willDeliver}</p>
         {/* <p>{messages.map()}</p> */}

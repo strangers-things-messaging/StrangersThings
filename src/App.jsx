@@ -3,7 +3,7 @@ import { useState } from 'react'
 import './App.css'
 import SignUpPage from './pages/SignUpPage.jsx'
 import ProfilePage from './pages/ProfilePage.jsx'
-import CreatePost from './pages/CreatePostPage.jsx'
+import CreatePostPage from './pages/CreatePostPage.jsx'
 import LoginPage from './pages/LogInPage.jsx'
 import Posts from './pages/Posts.jsx'
 
@@ -21,7 +21,7 @@ function App() {
         <Routes>
           <Route path="/" element={<SignUpPage setToken={setToken}/>}/>
           <Route path="/ProfilePage" element={<ProfilePage token={token} />}/>
-          <Route path="/CreatePost" element={<CreatePost token={token} />}/>
+          <Route path="/CreatePostPage" element={<CreatePostPage token={token} />}/>
           <Route path="/LoginPage" element={<LoginPage setToken={setToken} />}/>
           <Route path="/Posts" element={<Posts token={token} />}/>
         </Routes>

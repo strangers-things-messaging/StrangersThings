@@ -24,3 +24,22 @@ export async function fetchMyPosts() {
         console.error(err);
       }
 }
+
+export async function createNewPost(newPost) {
+    try {
+        const response = await fetch(POSTS_ENDPOINT, {
+          method: "POST",
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          },
+          body: JSON.stringify(newPost)
+        });
+        const result = await response.json();
+        console.log(result);
+        return result
+    } catch (err) {
+        console.error(err);
+    }
+    
+}

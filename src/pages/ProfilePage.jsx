@@ -42,10 +42,7 @@ export default function ProfilePage({token}) {
             <div>
                 <NavBar />
                 <p>welcome {username}!</p>
-                
-        
-          
-            <main>
+            {/* <main>
             {
                 posts.map((post) => (
                     <PostCard 
@@ -55,14 +52,11 @@ export default function ProfilePage({token}) {
                         />
                 ))
             }
-            </main>
+            </main> */}
         
         
             </div>
-            <div>
-                {messages}
-                {posts}
-            </div>
+            
             {
                 //need edit post button and delete post button only on the posts the user has created
                 //need to 

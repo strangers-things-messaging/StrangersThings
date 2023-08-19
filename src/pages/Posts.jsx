@@ -22,7 +22,7 @@ export default function Posts() {
         <>
             <NavBar />
             <h1>Posts</h1>
-            <main>
+            {/* <main>
             {
                 posts.map((post) => (
                     <PostCard 
@@ -32,7 +32,7 @@ export default function Posts() {
                         />
                 ))
             }
-            </main>
+            </main> */}
         </>
         
     )
