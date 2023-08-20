@@ -12,6 +12,7 @@ export default function ProfilePage({token}) {
     const [username, setUsername] = useState("")
     const [messages, setMessages] = useState("")
     const [posts, setPosts] = useState("")
+    const [_id, set_Id] = useState("")
 //wrap myData in useEffect
     const myData = async () => {
         try {
@@ -22,10 +23,11 @@ export default function ProfilePage({token}) {
                 },
             });
         const result = await response.json();
-        console.log(result);
+        // console.log(result);
         setUsername(result.data.username)
         setMessages(result.data.messages)
         setPosts(result.data.posts)
+        console.log(posts)
         return result
         } catch (err) {
             console.error(err);

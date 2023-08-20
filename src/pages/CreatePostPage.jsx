@@ -7,7 +7,7 @@ const COHORT_NAME='2302-acc-et-web-pt-a'
 const API_URL=`https://strangers-things.herokuapp.com/api/${COHORT_NAME}`
 const POSTS_ENDPOINT=`${API_URL}/posts`
 
-export default function CreatePost(token) {
+export default function CreatePost({token}) {
     // const [title, setTitle] = useState("")
     // const [description, setDescription] = useState("")
     // const [price, setPrice] = useState("")
@@ -46,9 +46,9 @@ export default function CreatePost(token) {
     //         console.error(err);
     //     }
     // }
-    useEffect(() => { 
-        createNewPost()
-    }, [token])
+    // useEffect(() => { 
+    //     createNewPost(token)
+    // }, [token])
     
     return (
         <div>

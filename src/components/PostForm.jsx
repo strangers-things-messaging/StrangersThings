@@ -1,28 +1,28 @@
 import { useState } from 'react'
 import { createNewPost } from '../API/index.js'
 
-export default function PostForm(token) {
+export default function PostForm({token}) {
     const [title, setTitle] = useState("")
     const [description, setDescription] = useState("")
     const [price, setPrice] = useState("")
     const [location, setLocation] = useState("On Request")
-    const [willDeliver, setWillDeliver] = useState("Yes")
+    const [willDeliver, setWillDeliver] = useState(true)
 
     async function handleSubmit(e) {
         e.preventDefault()
-        const newPost = {
-          title,
-          description,
-          price,
-          location,
-          willDeliver
-        }
+        const newPost = {post:{
+          title:title,
+          description:description,
+          price:price,
+          location:location,
+          willDeliver:willDeliver
+        }}
         await createNewPost(newPost, token)
         setTitle('')
         setDescription('')
         setPrice('')
         setLocation('On Request')
-        setWillDeliver('Yes')
+        setWillDeliver(true)
         // fetchPosts()
     }
     //TODO send success message if successfully created post, send error message if errors
@@ -68,8 +68,8 @@ export default function PostForm(token) {
                 value={willDeliver}
                 onChange={(e) => setWillDeliver(e.target.value)}
             >
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
+                <option value={true}>Yes</option>
+                <option value={false}>No</option>
             </select>
             <br></br>
             <button className="submit">Submit</button>

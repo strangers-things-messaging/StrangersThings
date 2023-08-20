@@ -1,4 +1,4 @@
-import { useState } from 'react'
+// import { useState } from 'react'
 import {fetchPosts} from '../API'
 
 export default function PostCard({ post, fetchPosts }) {
@@ -7,10 +7,10 @@ export default function PostCard({ post, fetchPosts }) {
     // const [showForm, setShowForm] = useState(false)
     return (
       <div className="postCard" key={_id}>
-        <h3>{title}</h3>
-        <p>Author: {author}</p>
+        <h1>{title}</h1>
+        <p>Author: {author.username}</p>
         <p>Description: {description}</p>
-        <p>Price: {price} Location: {location} Will Deliver: {willDeliver}</p>
+        <p>Price: {price} Location: {location} Will Deliver: {willDeliver ? "Yes" : "No"}</p>
         {/* <p>{messages.map()}</p> */}
         <button>Send Message to Seller</button>
         {
