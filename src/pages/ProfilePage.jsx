@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import NavBar from '../components/NavBar'
-import PostCard from '../components/PostCard.jsx'
+import MyPostsCard from '../components/MyPostsCard.jsx'
 import { fetchMyPosts } from '../API/index.js'
 
 
@@ -11,7 +11,7 @@ export default function ProfilePage({token}) {
 //make state vars
     const [username, setUsername] = useState("")
     const [messages, setMessages] = useState("")
-    const [posts, setPosts] = useState("")
+    const [posts, setPosts] = useState([])
     const [_id, set_Id] = useState("")
 //wrap myData in useEffect
     const myData = async () => {
@@ -22,13 +22,13 @@ export default function ProfilePage({token}) {
                 'Authorization': `Bearer ${token}`
                 },
             });
-        const result = await response.json();
-        // console.log(result);
-        setUsername(result.data.username)
-        setMessages(result.data.messages)
-        setPosts(result.data.posts)
-        console.log(posts)
-        return result
+            const result = await response.json();
+            // console.log(result);
+            setUsername(result.data.username)
+            setMessages(result.data.messages)
+            setPosts(result.data.posts)
+            // console.log(posts)
+            return result
         } catch (err) {
             console.error(err);
         }
@@ -43,18 +43,18 @@ export default function ProfilePage({token}) {
         }
             <div>
                 <NavBar />
-                <p>welcome {username}!</p>
-            {/* <main>
+                <p>Welcome {username}!</p>
+            <main>
             {
                 posts.map((post) => (
-                    <PostCard 
+                    <MyPostsCard 
                         key={post._id}
                         post={post}
                         fetchMyPosts={myData}
                         />
                 ))
             }
-            </main> */}
+            </main>
         
         
             </div>
