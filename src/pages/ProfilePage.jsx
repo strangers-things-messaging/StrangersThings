@@ -12,7 +12,7 @@ export default function ProfilePage({token}) {
     const [username, setUsername] = useState("")
     const [messages, setMessages] = useState("")
     const [posts, setPosts] = useState([])
-    const [_id, set_Id] = useState("")
+    // const [_id, set_Id] = useState("")
 //wrap myData in useEffect
     const myData = async () => {
         try {
@@ -46,10 +46,11 @@ export default function ProfilePage({token}) {
                 <p>Welcome {username}!</p>
             <main>
             {
-                posts.map((post) => (
+                posts.map((post, token) => (
                     <MyPostsCard 
                         key={post._id}
                         post={post}
+                        token={token}
                         fetchMyPosts={myData}
                         />
                 ))
