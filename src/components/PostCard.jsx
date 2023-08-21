@@ -7,9 +7,9 @@ export default function PostCard({ post, token }) {
     const { _id, title, author, description, location, price, willDeliver, messages, active, isAuthor} = post;
     // const [showForm, setShowForm] = useState(false)
     async function handleClick(_id, token) {
-      if (isAuthor) {
+ 
           await deletePost(_id, token);
-      }
+      
       
   }
     return (

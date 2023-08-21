@@ -7,16 +7,16 @@ const COHORT_NAME='2302-acc-et-web-pt-a'
 const API_URL=`https://strangers-things.herokuapp.com/api/${COHORT_NAME}`
 const POSTS_ENDPOINT=`${API_URL}/posts`
 
-export default function Posts(token) {
+export default function Posts({token}) {
     const [posts, setPosts] = useState([])
    
-    async function fetchData() {
-        const data = await fetchPosts()
+    async function fetchData(token) {
+        const data = await fetchPosts(token)
         setPosts(data)
     }
     useEffect(() => {
-        fetchData()
-    }, []) 
+        fetchData(token)
+    }, [token]) 
     
     return (
         <>
@@ -28,6 +28,7 @@ export default function Posts(token) {
                     <PostCard 
                         key={post._id}
                         post={post}
+                        token={token}
                         fetchPosts={fetchData}
                         />
                 ))

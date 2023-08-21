@@ -5,7 +5,13 @@ const POSTS_ENDPOINT=`${API_URL}/posts`
 
 export async function fetchPosts(token) {
     try {
-      const response = await fetch(`${POSTS_ENDPOINT}`)
+      const response = await fetch(`${POSTS_ENDPOINT}`,{
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          }
+      })
+      
       const result = await response.json();
       console.log(result.data.posts);
       return result.data.posts
