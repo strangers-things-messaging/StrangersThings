@@ -42,5 +42,21 @@ export async function createNewPost(newPost, token) {
     } catch (err) {
         console.error(err);
     }
-    
 }
+
+export async function deletePost(_id, token) {
+    try {
+      const response = await fetch(`${POSTS_ENDPOINT}/${_id}`, {
+        method: "DELETE",
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        }
+      });
+      const result = await response.json();
+      console.log(result);
+      return result
+    } catch (err) {
+      console.error(err);
+    }
+  }
