@@ -46,7 +46,7 @@ export default function ProfilePage({token}) {
                 <p>Welcome {username}!</p>
             <main>
             {
-                posts.map((post, token) => (
+                posts.map((post) => (
                     <MyPostsCard 
                         key={post._id}
                         post={post}

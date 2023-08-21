@@ -1,11 +1,13 @@
 import { deletePost } from "../API";
+import {fetchMyPosts} from '../API'
 
-export default function MyPostsCard({ post }, token) {
+export default function MyPostsCard({ post, token, fetchMyPosts }) {
     //TODO show messages once send message is functional
     const { _id, title, description, location, price, willDeliver, messages, active} = post;
     // const [showForm, setShowForm] = useState(false)
     async function handleClick(_id, token) {
         await deletePost(_id, token);
+        await fetchMyPosts();
     }
     return (
       <div className="myPostsCard" key={_id}>
