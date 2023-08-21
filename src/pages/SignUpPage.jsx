@@ -48,7 +48,7 @@ export default function SignUpPage({setToken}) {
   }
   return (
     <div>
-      <NavBar />
+
       <h1>Sign Up</h1>
       <form onSubmit={submitForm}>
         <label htmlFor="username">Username: </label>

@@ -51,7 +51,7 @@ export default function LoginPage({setToken}) {
     
     return (
       <div>
-        <NavBar />
+       
         <h1>Log In</h1>
         <form onSubmit={submitForm}>
           <label htmlFor="username">Username: </label>

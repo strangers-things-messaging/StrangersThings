@@ -42,7 +42,7 @@ export default function ProfilePage({token}) {
         //use state here
         }
             <div>
-                <NavBar />
+         
                 <p>Welcome {username}!</p>
             <main>
             {

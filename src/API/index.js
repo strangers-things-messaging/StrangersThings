@@ -66,3 +66,22 @@ export async function deletePost(_id, token) {
       console.error(err);
     }
   }
+  
+  export async function updatePost(post, _id, token) {
+    try {
+      const response = await fetch(`${POSTS_ENDPOINT}/${_id}`, {
+        method: "PATCH",
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify(post)
+      });
+      const result = await response.json();
+      console.log(result);
+      return result
+    } catch (err) {
+      console.error(err);
+    }
+  }
+  

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import NavBar from '../components/NavBar.jsx'
+
 import { fetchPosts } from '../API/index.js'
 import PostCard from '../components/PostCard.jsx'
 
@@ -20,7 +20,7 @@ export default function Posts({token}) {
     
     return (
         <>
-            <NavBar />
+            
             <h1>Posts</h1>
             <main>
             {

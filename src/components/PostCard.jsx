@@ -1,16 +1,16 @@
 // import { useState } from 'react'
-// import {fetchPosts} from '../API'
+import {fetchPosts} from '../API'
 import { deletePost } from "../API";
 
-export default function PostCard({ post, token }) {
+export default function PostCard({ post, token, fetchPosts }) {
     //TODO show messages once send message is functional
     const { _id, title, author, description, location, price, willDeliver, messages, active, isAuthor} = post;
     // const [showForm, setShowForm] = useState(false)
     async function handleClick(_id, token) {
- 
-          await deletePost(_id, token);
-      
-      
+      if (isAuthor) {
+          await deletePost(_id, token);  
+      }
+      await fetchPosts();
   }
     return (
       <div className="postCard" key={_id}>

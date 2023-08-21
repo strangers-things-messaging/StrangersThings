@@ -6,6 +6,7 @@ import ProfilePage from './pages/ProfilePage.jsx'
 import CreatePostPage from './pages/CreatePostPage.jsx'
 import LoginPage from './pages/LogInPage.jsx'
 import Posts from './pages/Posts.jsx'
+import NavBar from './components/NavBar.jsx'
 
 
 const COHORT_NAME='2302-acc-et-web-pt-a'
@@ -17,7 +18,7 @@ function App() {
   return (
     <>
       <div>
-        
+        <NavBar token={token} setToken={setToken}/>
         <Routes>
           <Route path="/" element={<SignUpPage setToken={setToken}/>}/>
           <Route path="/ProfilePage" element={<ProfilePage token={token} />}/>
