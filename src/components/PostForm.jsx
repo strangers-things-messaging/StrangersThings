@@ -7,7 +7,6 @@ export default function PostForm({token}) {
     const [price, setPrice] = useState("")
     const [location, setLocation] = useState("On Request")
     const [willDeliver, setWillDeliver] = useState(true)
-    // const [isActive, setIsActive] = useState(true)
 
     async function handleSubmit(e) {
         e.preventDefault()
@@ -17,7 +16,6 @@ export default function PostForm({token}) {
           price:price,
           location:location,
           willDeliver:willDeliver
-        //   isActive:isActive
         }}
         await createNewPost(newPost, token)
         setTitle('')
@@ -25,7 +23,6 @@ export default function PostForm({token}) {
         setPrice('')
         setLocation('On Request')
         setWillDeliver(true)
-        setIsActive(true)
         // fetchPosts()
     }
     //TODO send success message if successfully created post, send error message if errors
