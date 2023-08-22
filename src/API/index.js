@@ -67,9 +67,9 @@ export async function deletePost(_id, token) {
     }
   }
   
-export async function updatePost(updatedPost, post._id, token) {
+export async function updatePost(updatedPost, _id, token) {
     try {
-      const response = await fetch(`${POSTS_ENDPOINT}/${post._id}`, {
+      const response = await fetch(`${POSTS_ENDPOINT}/${_id}`, {
         method: "PATCH",
         headers: {
           'Content-Type': 'application/json',

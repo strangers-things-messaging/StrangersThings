@@ -1,7 +1,8 @@
 import { useState } from 'react'
-import { updatePost } from '../API/index.js'
+import { updatePost, fetchMyPosts } from '../API/index.js'
 
-export default function UpdatePost({ _id, post, token }) {
+
+export default function UpdatePost({ _id, post, token, fetchMyPosts}) {
     const [title, setTitle] = useState(post.title)
     const [description, setDescription] = useState(post.description)
     const [price, setPrice] = useState(post.price)
@@ -17,7 +18,9 @@ export default function UpdatePost({ _id, post, token }) {
           location:location,
           willDeliver:willDeliver
         }}
-        await updatePost(post._id, updatedPost, token)
+        await updatePost(updatedPost, post._id, token)
+        await fetchMyPosts()
+        // setShowForm(false)
         // setTitle('')
         // setDescription('')
         // setPrice('')
