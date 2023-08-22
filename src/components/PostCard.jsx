@@ -1,20 +1,19 @@
-// import { useState } from 'react'
+import { useState } from 'react'
 import {fetchPosts} from '../API'
-import { deletePost } from "../API";
-
+import SendMessage from './SendMessage.jsx'
 export default function PostCard({ post, token, fetchPosts }) {
     //TODO show messages once send message is functional
     const { _id, title, author, description, location, price, willDeliver, messages, active, isAuthor} = post;
-    // const [showForm, setShowForm] = useState(false)
+    const [showMessageForm, setShowMessageForm] = useState(false)
     // async function handleClick(_id, token) {
     //   if (isAuthor) {
     //       await deletePost(_id, token);  
     //   }
     //   await fetchPosts();
     // }
-    async function handleMessageClick(_id, token) {
+    async function handleMessageClick() {
       //TODO show message form
-
+      setShowMessageForm(true)
     }
     return (
       <div className="postCard" key={_id}>
@@ -23,9 +22,9 @@ export default function PostCard({ post, token, fetchPosts }) {
         <p>Description: {description}</p>
         <p>Price: {price} Location: {location} Will Deliver: {willDeliver ? "Yes" : "No"}</p>
         {/* <p>{messages.map()}</p> */}
-        {/* <p>Active: {active ? "Yes" : "No"}</p> */}
-        <button onClick={() => handleMessageClick(_id, token)}>Send Message to Seller</button>
-        {/* <button className="deleteButton" onClick={() => handleClick(_id, token)}>Delete Post</button> */}
+        <button onClick={() => handleMessageClick()}>Send Message to Seller</button>
+        {showMessageForm && <SendMessage post={post} token={token} fetchPosts={fetchPosts} setShowMessageForm={setShowMessageForm}/> }
+
         {
            // make button function to show message form below post. 
            // must be logged in and not the author to send message

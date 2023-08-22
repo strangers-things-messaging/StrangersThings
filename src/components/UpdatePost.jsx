@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { updatePost, fetchMyPosts } from '../API/index.js'
 
 
-export default function UpdatePost({ _id, post, token, fetchMyPosts}) {
+export default function UpdatePost({ _id, post, token, fetchMyPosts, setShowForm}) {
     const [title, setTitle] = useState(post.title)
     const [description, setDescription] = useState(post.description)
     const [price, setPrice] = useState(post.price)
@@ -20,17 +20,9 @@ export default function UpdatePost({ _id, post, token, fetchMyPosts}) {
         }}
         await updatePost(updatedPost, post._id, token)
         await fetchMyPosts()
-        // setShowForm(false)
-        // setTitle('')
-        // setDescription('')
-        // setPrice('')
-        // setLocation('On Request')
-        // setWillDeliver(true)
-        // fetchPosts()
-
+        setShowForm(false)
     }
-    //TODO send success message if successfully created post, send error message if errors
-    //TODO once post is created, route to profile page
+
     
     return (
         <form onSubmit={handleSubmit}>

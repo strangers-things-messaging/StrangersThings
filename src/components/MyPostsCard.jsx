@@ -12,7 +12,7 @@ export default function MyPostsCard({ post, token, fetchMyPosts }) {
         await deletePost(_id, token);
         await fetchMyPosts();
     }
-    async function handleEditClick(post, token) {
+    async function handleEditClick() {
         // await updatePost(post, _id, token);
         // await fetchMyPosts();
         setShowForm(true);
@@ -24,13 +24,9 @@ export default function MyPostsCard({ post, token, fetchMyPosts }) {
         <p>Price: {price} Location: {location} Will Deliver: {willDeliver ? "Yes" : "No"}</p>
         {/* <p>{messages.map()}</p> */}
         <p>Active: {active ? "Yes" : "No"}</p>
-        {/* <button className="editPost" onClick={() => handleEditClick()}>Edit Post</button> */}
-        {/* <Link to="/UpdatePost">Update Post</Link> */}
         <button className="deleteButton" onClick={() => handleClick(_id, token)}>Delete Post</button>
-        {/* <button className="editPost" onClick={() => handleEditClick()}>Edit Post</button> */}
-        {/* <button className="editPost" onClick={ showForm && <UpdatePost post={post} token={token} /> }>Edit Post</button> */}
         <button className="editPost" onClick={() => handleEditClick()}>Edit Post</button>
-        {showForm && <UpdatePost post={post} token={token} /> }
+        {showForm && <UpdatePost post={post} token={token} fetchMyPosts={fetchMyPosts} setShowForm={setShowForm}/> }
 
 
         {
