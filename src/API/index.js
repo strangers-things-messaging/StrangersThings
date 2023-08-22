@@ -84,7 +84,7 @@ export async function updatePost(updatedPost, _id, token) {
       console.error(err);
     }
 }
-export async function postMessage(_id, token) {
+export async function postMessage(_id, token, newMessage) {
     try {
       const response = await fetch(`${POSTS_ENDPOINT}/${_id}/messages`, {
         method: "POST",
@@ -92,11 +92,7 @@ export async function postMessage(_id, token) {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`
         },
-        body: JSON.stringify({
-          message: {
-            content: "Do you still have this?  Would you take $10 less?"
-          }
-        })
+        body: JSON.stringify(newMessage)
       });
       const result = await response.json();
       console.log(result);

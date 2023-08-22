@@ -1,10 +1,15 @@
 import { useState } from 'react'
 import { postMessage, fetchPosts } from '../API/index.js'
 
-export default function SendMessage({_id, token, fetchPosts, setShowMessageForm}) {
+export default function SendMessage({ post, _id, token, fetchPosts, setShowMessageForm}) {
     const [message, setMessage] = useState("")
-    async function handleSubmit() {
-        await postMessage(_id, token)
+    async function handleSubmit(e) {
+        e.preventDefault()
+        const newMessage = {message:{
+            message:message
+        }}
+        
+        await postMessage(post._id, token, newMessage)
         await fetchPosts()
         setShowMessageForm(false)
     }
