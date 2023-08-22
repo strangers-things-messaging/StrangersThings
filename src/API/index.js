@@ -67,7 +67,7 @@ export async function deletePost(_id, token) {
     }
   }
   
-  export async function updatePost(post, _id, token) {
+export async function updatePost(updatedPost, _id, token) {
     try {
       const response = await fetch(`${POSTS_ENDPOINT}/${_id}`, {
         method: "PATCH",
@@ -75,7 +75,7 @@ export async function deletePost(_id, token) {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`
         },
-        body: JSON.stringify(post)
+        body: JSON.stringify(updatedPost)
       });
       const result = await response.json();
       console.log(result);
@@ -83,5 +83,25 @@ export async function deletePost(_id, token) {
     } catch (err) {
       console.error(err);
     }
-  }
-  
+}
+export async function postMessage(_id, token) {
+    try {
+      const response = await fetch(`${POSTS_ENDPOINT}/${_id}/messages`, {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({
+          message: {
+            content: "Do you still have this?  Would you take $10 less?"
+          }
+        })
+      });
+      const result = await response.json();
+      console.log(result);
+      return result
+    } catch (err) {
+      console.error(err);
+    }
+}  

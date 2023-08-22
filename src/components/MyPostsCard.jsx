@@ -1,5 +1,5 @@
-import { deletePost } from "../API";
-import {fetchMyPosts} from '../API'
+import { deletePost, updatePost, fetchMyPosts } from "../API";
+
 
 export default function MyPostsCard({ post, token, fetchMyPosts }) {
     //TODO show messages once send message is functional
@@ -9,6 +9,10 @@ export default function MyPostsCard({ post, token, fetchMyPosts }) {
         await deletePost(_id, token);
         await fetchMyPosts();
     }
+    async function handleEditClick(post, _id, token) {
+        // await updatePost(post, _id, token);
+        // await fetchMyPosts();
+    }
     return (
       <div className="myPostsCard" key={_id}>
         <h1>{title}</h1>
@@ -16,7 +20,7 @@ export default function MyPostsCard({ post, token, fetchMyPosts }) {
         <p>Price: {price} Location: {location} Will Deliver: {willDeliver ? "Yes" : "No"}</p>
         {/* <p>{messages.map()}</p> */}
         <p>Active: {active ? "Yes" : "No"}</p>
-        <button>Edit</button>
+        <button className="editPost" onClick={() => handleEditClick(post, _id, token)}>Edit Post</button>
         <button className="deleteButton" onClick={() => handleClick(_id, token)}>Delete Post</button>
         {
            // make button function to show message form below post. 
