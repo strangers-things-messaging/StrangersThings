@@ -1,10 +1,10 @@
 export default function MessageCard({ post, token, message }) {
-    const { post, _id, fromUser, content, updatedAt} = message
+    const { _id, fromUser, content } = message
     return (
-        <div className="messageCard" key={post._id}>
-            <h2>{fromUser.username}</h2>
+        <div className="messageCard" key={_id}>
+            <h2>Message from {fromUser.username}</h2>
             <p>{content}</p>
-            <p>{updatedAt}</p>
+            
         </div>
         
     )

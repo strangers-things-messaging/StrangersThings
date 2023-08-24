@@ -28,8 +28,9 @@ export default function MyPostsCard({ post, token, fetchMyPosts, message }) {
             messages.map((message) => (
               <MessageCard 
                 key={post._id}
-                post={post}
+                // post={post}
                 token={token}
+                message={message}
                 />
             ))
           }   
