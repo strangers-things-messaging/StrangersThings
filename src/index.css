@@ -75,3 +75,11 @@ button:focus-visible {
   display: flex;
   padding: 20px;
 }
+p {
+  font-size: 25px;
+}
+
+h2 {
+  color: rgb(45, 45, 253);
+  font-size: 35px;
+}

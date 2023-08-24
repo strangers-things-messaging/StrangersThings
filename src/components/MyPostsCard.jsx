@@ -23,18 +23,18 @@ export default function MyPostsCard({ post, token, fetchMyPosts, message }) {
         <h1>{title}</h1>
         <p>Description: {description}</p>
         <p>Price: {price} Location: {location} Will Deliver: {willDeliver ? "Yes" : "No"}</p>
-        <p>
+        <div>
           {
             messages.map((message) => (
               <MessageCard 
-                key={post._id}
+                key={message._id}
                 // post={post}
                 token={token}
                 message={message}
                 />
             ))
           }   
-       </p>
+       </div>
         <p>Active: {active ? "Yes" : "No"}</p>
         <button className="deleteButton" onClick={() => handleClick(_id, token)}>Delete Post</button>
         <button className="editPost" onClick={() => handleEditClick()}>Edit Post</button>
