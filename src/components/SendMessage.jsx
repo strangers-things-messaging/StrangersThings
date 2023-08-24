@@ -2,11 +2,12 @@ import { useState } from 'react'
 import { postMessage, fetchPosts } from '../API/index.js'
 
 export default function SendMessage({ post, _id, token, fetchPosts, setShowMessageForm}) {
-    const [message, setMessage] = useState("")
+    const [message, setMessage] = useState([])
+    const [content, setContent] = useState("")
     async function handleSubmit(e) {
         e.preventDefault()
         const newMessage = {message:{
-            message:message
+            content:content
         }}
         
         await postMessage(post._id, token, newMessage)
@@ -19,8 +20,8 @@ export default function SendMessage({ post, _id, token, fetchPosts, setShowMessa
             <textarea
                 type="text"
                 id="description"
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
+                value={content}
+                onChange={(e) => setContent(e.target.value)}
             />
             <button className="submit">Submit</button>
         </form>

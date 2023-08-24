@@ -7,10 +7,10 @@ import { fetchMyPosts } from '../API/index.js'
 const COHORT_NAME='2302-acc-et-web-pt-a'
 const API_URL=`https://strangers-things.herokuapp.com/api/${COHORT_NAME}`
 
-export default function ProfilePage({token}) {
+export default function ProfilePage({token, message}) {
 //make state vars
     const [username, setUsername] = useState("")
-    // const [messages, setMessages] = useState("")
+    const [messages, setMessages] = useState([])
     const [posts, setPosts] = useState([])
     // const [_id, set_Id] = useState("")
 //wrap myData in useEffect
@@ -25,7 +25,7 @@ export default function ProfilePage({token}) {
             const result = await response.json();
             // console.log(result);
             setUsername(result.data.username)
-            // setMessages(result.data.messages)
+            setMessages(result.data.messages)
             setPosts(result.data.posts)
             // console.log(posts)
             return result
@@ -51,6 +51,7 @@ export default function ProfilePage({token}) {
                         key={post._id}
                         post={post}
                         token={token}
+                        message={message}
                         fetchMyPosts={myData}
                         />
                 ))

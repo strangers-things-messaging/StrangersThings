@@ -23,7 +23,7 @@ export default function PostCard({ post, token, fetchPosts }) {
         <p>Price: {price} Location: {location} Will Deliver: {willDeliver ? "Yes" : "No"}</p>
         {/* <p>{messages.map()}</p> */}
         <button onClick={() => handleMessageClick()}>Send Message to Seller</button>
-        {showMessageForm && <SendMessage post={post} token={token} fetchPosts={fetchPosts} setShowMessageForm={setShowMessageForm}/> }
+        {showMessageForm && <SendMessage post={post} _id={_id} token={token} fetchPosts={fetchPosts} setShowMessageForm={setShowMessageForm}/> }
 
         {
            // make button function to show message form below post. 

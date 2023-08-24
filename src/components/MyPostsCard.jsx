@@ -2,9 +2,10 @@ import { deletePost, updatePost, fetchMyPosts } from "../API";
 import { Link } from 'react-router-dom'
 import UpdatePost from './UpdatePost.jsx'
 import { useState }from 'react'
+import MessageCard from './MessageCard.jsx'
 
 
-export default function MyPostsCard({ post, token, fetchMyPosts }) {
+export default function MyPostsCard({ post, token, fetchMyPosts, message }) {
     //TODO show messages once send message is functional
     const { _id, title, description, location, price, willDeliver, messages, active} = post;
     const [showForm, setShowForm] = useState(false)
@@ -22,7 +23,17 @@ export default function MyPostsCard({ post, token, fetchMyPosts }) {
         <h1>{title}</h1>
         <p>Description: {description}</p>
         <p>Price: {price} Location: {location} Will Deliver: {willDeliver ? "Yes" : "No"}</p>
-        {/* <p>{messages.map()}</p> */}
+        <p>
+          {
+            messages.map((message) => (
+              <MessageCard 
+                key={post._id}
+                post={post}
+                token={token}
+                />
+            ))
+          }   
+       </p>
         <p>Active: {active ? "Yes" : "No"}</p>
         <button className="deleteButton" onClick={() => handleClick(_id, token)}>Delete Post</button>
         <button className="editPost" onClick={() => handleEditClick()}>Edit Post</button>
