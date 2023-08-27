@@ -11,7 +11,7 @@ export default function CreatePost({token, setToken}) {
 
     return (
         <div>
-         
+            <h1>Create Post</h1>
             <PostForm token={token}/>
         </div>
     )

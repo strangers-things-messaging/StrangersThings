@@ -67,14 +67,14 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
-/* a {
-  margin: 20px, 20px, 20px, 20px;
-  padding: 20px;
-} */
+
 #navbar {
   display: flex;
-  padding: 20px;
+  /* align-items: space-between space-between; */
+  justify-content: center;
+  /* padding: 20px; */
 }
+
 p {
   font-size: 25px;
 }
@@ -82,4 +82,13 @@ p {
 h2 {
   color: rgb(45, 45, 253);
   font-size: 35px;
+}
+
+a {
+  color: white;
+}
+
+h1 {
+  display: flex;
+  align-self: left;
 }
