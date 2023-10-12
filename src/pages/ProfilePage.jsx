@@ -38,11 +38,7 @@ export default function ProfilePage({token, message}) {
     }, [token])
     return (
         <>
-        {
-        //use state here
-        }
             <div>
-         
                 <p>Welcome {username}!</p>
             <main>
             {
@@ -56,9 +52,7 @@ export default function ProfilePage({token, message}) {
                         />
                 ))
             }
-            </main>
-        
-        
+            </main> 
             </div>
             
             {

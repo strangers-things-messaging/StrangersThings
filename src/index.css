@@ -90,5 +90,6 @@ a {
 
 h1 {
   display: flex;
-  align-self: left;
+  align-self: center;
+  justify-content: center;
 }

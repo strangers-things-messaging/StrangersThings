@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import NavBar from '../components/NavBar.jsx'
+
 
 const COHORT_NAME='2302-acc-et-web-pt-a'
 const API_URL=`https://strangers-things.herokuapp.com/api/${COHORT_NAME}`

@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import NavBar from '../components/NavBar.jsx'
 
 const COHORT_NAME='2302-acc-et-web-pt-a'
 const API_URL=`https://strangers-things.herokuapp.com/api/${COHORT_NAME}`
 
 export default function SignUpPage({setToken}) {
+
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [errorMessage, setErrorMessage] = useState('')
@@ -27,8 +27,8 @@ export default function SignUpPage({setToken}) {
                       }, 
                       body: JSON.stringify({ 
                         user: {
-                              username, 
-                              password 
+                          username, 
+                          password 
                         }
                       }) 
                     })

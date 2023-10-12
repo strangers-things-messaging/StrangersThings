@@ -21,8 +21,13 @@ export default function MyPostsCard({ post, token, fetchMyPosts, message }) {
     return (
       <div className="myPostsCard" key={_id}>
         <h1>{title}</h1>
-        <p>Description: {description}</p>
-        <p>Price: {price} Location: {location} Will Deliver: {willDeliver ? "Yes" : "No"}</p>
+        <p>
+          Description: {description} <br></br>
+          Price: {price} <br></br>
+          Location: {location} <br></br> 
+          Will Deliver: {willDeliver ? "Yes" : "No"}<br></br>
+          Active: {active ? "Yes" : "No"}
+        </p>
         <div>
           {
             messages.map((message) => (
@@ -35,16 +40,10 @@ export default function MyPostsCard({ post, token, fetchMyPosts, message }) {
             ))
           }   
        </div>
-        <p>Active: {active ? "Yes" : "No"}</p>
+        
         <button className="deleteButton" onClick={() => handleClick(_id, token)}>Delete Post</button>
         <button className="editPost" onClick={() => handleEditClick()}>Edit Post</button>
         {showForm && <UpdatePost post={post} token={token} fetchMyPosts={fetchMyPosts} setShowForm={setShowForm}/> }
-
-
-        {
-           // make button function to show message form below post. 
-           // must be logged in to send message
-        }
       </div>
     )
   }
