@@ -39,7 +39,7 @@ export default function ProfilePage({token, message}) {
     return (
         <>
             <div>
-                <p>Welcome {username}!</p>
+                <h1>Welcome {username}!</h1>
             <main>
             {
                 posts.map((post) => (
