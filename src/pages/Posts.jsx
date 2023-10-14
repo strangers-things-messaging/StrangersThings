@@ -9,22 +9,35 @@ const POSTS_ENDPOINT=`${API_URL}/posts`
 
 export default function Posts({token}) {
     const [posts, setPosts] = useState([])
+    const [filteredPosts, setFilteredPosts] = useState([])
    
     async function fetchData(token) {
         const data = await fetchPosts(token)
         setPosts(data)
+        setFilteredPosts(data)
     }
     useEffect(() => {
         fetchData(token)
     }, [token]) 
-    
+    function handleSubmit(e) {
+        e.preventDefault()
+        const search = e.target.value;
+        const filteredPosts = posts.filter((post) => {
+            return post.title.toLowerCase().includes(search.toLowerCase())
+        })
+        setFilteredPosts(filteredPosts)
+    }
     return (
         <>
             
             <h1>Posts</h1>
+            <form onSubmit={handleSubmit}>
+                <label htmlFor="search">Search</label>
+                <input onChange={handleSubmit} type="text" id="search" />
+            </form>
             <main>
             {
-                posts.map((post) => (
+                filteredPosts.map((post) => (
                     <PostCard 
                         key={post._id}
                         post={post}

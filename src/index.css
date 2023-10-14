@@ -15,7 +15,7 @@
 }
 
 a {
-  /* font-weight: 500; */
+  font-weight: 500;
   color: black;
   text-decoration: inherit;
 }
@@ -72,9 +72,6 @@ button:focus-visible {
   display: flex;
   /* align-items: space-between space-between; */
   justify-content: center;
-  /* padding: 20px; */
-  /* text-decoration: none; */
-
 }
 
 p {
@@ -86,9 +83,9 @@ h2 {
   font-size: 35px;
 }
 
-a {
+/* a {
   color: black;
-}
+} */
 
 h1 {
   display: flex;
