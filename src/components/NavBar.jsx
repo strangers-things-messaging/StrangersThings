@@ -12,7 +12,7 @@ export default function NavBar({ token, setToken }) {
         return (
             <>
                 <div className="navDiv">
-                <nav className="navbar fixed-top bg-body-tertiary navbar-expand-lg bg-body-tertiary">
+                <nav className="navbar sticky-top bg-body-tertiary navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
                     <div className="container-fluid navColor">
                         <a className="navbar-brand" href="#">Stranger's Things</a>
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,7 +34,7 @@ export default function NavBar({ token, setToken }) {
         return (
             <>
                 <div className="navDiv">
-                <nav className="navbar fixed-top bg-body-tertiary navbar-expand-lg bg-body-tertiary " >
+                <nav className="navbar sticky-top bg-body-tertiary navbar-expand-lg bg-body-tertiary" data-bs-theme="dark" >
                     <div className="container-fluid navColor">
                         <a className="navbar-brand" href="#">Stranger's Things</a>
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">

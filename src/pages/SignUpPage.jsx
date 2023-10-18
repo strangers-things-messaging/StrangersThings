@@ -47,7 +47,7 @@ export default function SignUpPage({setToken}) {
     }
   }
   return (
-    <div>
+    <div className='signup'>
 
       <h1>Sign Up</h1>
       <form onSubmit={submitForm}>
@@ -55,7 +55,9 @@ export default function SignUpPage({setToken}) {
         <input
           value={username} 
           type="username"
-          id="username"
+          id="username floatingInput"
+          className="form-control"
+          placeholder="JohnDoe1"
           onChange={(e) => {
             setErrorMessage('');
             setUsername(e.target.value)
@@ -66,7 +68,9 @@ export default function SignUpPage({setToken}) {
         <input
           value={password}
           type="password"
-          id="password"
+          id="password floatingInput"
+          className="form-control"
+          placeholder="Password1!"
           onChange={(e) => {
             setErrorMessage('');
             setPassword(e.target.value)

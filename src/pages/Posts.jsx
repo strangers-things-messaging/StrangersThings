@@ -19,11 +19,15 @@ export default function Posts({token}) {
     useEffect(() => {
         fetchData(token)
     }, [token]) 
+    
     function handleSubmit(e) {
         e.preventDefault()
         const search = e.target.value;
         const filteredPosts = posts.filter((post) => {
-            return post.title.toLowerCase().includes(search.toLowerCase())
+            return (
+                post.title.toLowerCase().includes(search.toLowerCase()) ||
+                post.description.toLowerCase().includes(search.toLowerCase())
+            )
         })
         setFilteredPosts(filteredPosts)
     }

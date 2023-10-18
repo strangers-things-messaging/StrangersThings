@@ -50,26 +50,30 @@ export default function LoginPage({setToken}) {
     }
     
     return (
-      <div>
+      <div className='login'>
        
         <h1>Log In</h1>
         <form onSubmit={submitForm}>
-          <label htmlFor="username">Username: </label>
+          <label htmlFor="username floatingInput">Username: </label>
           <input
             value={username} 
             type="username"
-            id="username"
+            id="username floatingInput"
+            className="form-control"
+            placeholder="JohnDoe1"
             onChange={(e) => {
               setErrorMessage('');
               setUsername(e.target.value)
             }} 
           />
           <br></br>
-          <label htmlFor="password">Password: </label>
+          <label htmlFor="password floatingPassword">Password: </label>
           <input
             value={password}
             type="password"
-            id="password"
+            id="password floatingInput"
+            className="form-control"
+            placeholder="Password1!"
             onChange={(e) => {
               setErrorMessage('');
               setPassword(e.target.value)
