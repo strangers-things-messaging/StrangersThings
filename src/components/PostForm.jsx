@@ -29,7 +29,7 @@ export default function PostForm({token}) {
     //TODO once post is created, route to profile page
     
     return (
-        <form onSubmit={handleSubmit}>
+        <form className='createPostForm' onSubmit={handleSubmit}>
             <label htmlFor="title">Title: </label>
             <input
                 type="text"

@@ -25,7 +25,7 @@ export default function UpdatePost({ _id, post, token, fetchMyPosts, setShowForm
 
     
     return (
-        <form onSubmit={handleSubmit}>
+        <form className="editPostForm" onSubmit={handleSubmit}>
             <label htmlFor="title">Title: </label>
             <input
                 type="text"

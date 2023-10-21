@@ -53,23 +53,6 @@ button:hover {
 }
 
 
-/* button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-} */
-
-/* @media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-} */
 .navColor {
   background-color: rgb(19, 19, 246);
   padding: 10px;
@@ -130,7 +113,7 @@ h1 {
   border-radius: 0.5em;
   text-align: center;
   transition: all 300ms;
-  width: 90%;
+  width: 70%;
   margin: 10px auto;
 }
 .signup {
@@ -138,6 +121,39 @@ h1 {
   margin: 0 auto;
 }
 .login {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.createPostForm {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.submit {
+  width: 100px;
+  margin: 0 auto;
+}
+
+.yourPosts {
+  color: black;
+  margin-top: 15px;
+  font-size: 45px;
+}
+
+.deleteButton {
+  margin-right: 5px;
+}
+
+.editPost {
+  margin-left: 5px;
+}
+
+.editPostForm {
+  display: flex;
+  flex-direction: column;
   width: 50%;
   margin: 0 auto;
 }

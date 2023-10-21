@@ -20,13 +20,13 @@ export default function MyPostsCard({ post, token, fetchMyPosts, message }) {
     }
     return (
       <div className="myPostsCard" key={_id}>
-        <h1>{title}</h1>
+        <h2>{title}</h2>
         <p>
-          Description: {description} <br></br>
-          Price: {price} <br></br>
-          Location: {location} <br></br> 
-          Will Deliver: {willDeliver ? "Yes" : "No"}<br></br>
-          Active: {active ? "Yes" : "No"}
+          <b>Description:</b> {description} <br></br>
+          <b>Price:</b> {price} <br></br>
+          <b>Location:</b> {location} <br></br> 
+          <b>Will Deliver:</b> {willDeliver ? "Yes" : "No"}<br></br>
+          <b>Active:</b> {active ? "Yes" : "No"}
         </p>
         <div>
           {
@@ -40,9 +40,10 @@ export default function MyPostsCard({ post, token, fetchMyPosts, message }) {
             ))
           }   
        </div>
-        
-        <button className="deleteButton" onClick={() => handleClick(_id, token)}>Delete Post</button>
-        <button className="editPost" onClick={() => handleEditClick()}>Edit Post</button>
+        <div>
+          <button className="deleteButton" onClick={() => handleClick(_id, token)}>Delete Post</button>
+          <button className="editPost" onClick={() => handleEditClick()}>Edit Post</button>
+        </div>
         {showForm && <UpdatePost post={post} token={token} fetchMyPosts={fetchMyPosts} setShowForm={setShowForm}/> }
       </div>
     )

@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-
 import { fetchPosts } from '../API/index.js'
 import PostCard from '../components/PostCard.jsx'
 
@@ -19,7 +18,7 @@ export default function Posts({token}) {
     useEffect(() => {
         fetchData(token)
     }, [token]) 
-    
+
     function handleSubmit(e) {
         e.preventDefault()
         const search = e.target.value;
@@ -31,17 +30,18 @@ export default function Posts({token}) {
         })
         setFilteredPosts(filteredPosts)
     }
+    const sortedPosts = filteredPosts.sort((a, b) => (b.createdAt < a.createdAt) ? -1 : (b.createdAt > a.createdAt) ? 1 : 0) 
     return (
         <>
             
             <h1>Posts</h1>
             <form onSubmit={handleSubmit}>
-                <label htmlFor="search">Search</label>
+                <label htmlFor="search">Search Title/Description</label>
                 <input onChange={handleSubmit} type="text" id="search" />
             </form>
             <main>
             {
-                filteredPosts.map((post) => (
+                sortedPosts.map((post) => (
                     <PostCard 
                         key={post._id}
                         post={post}
